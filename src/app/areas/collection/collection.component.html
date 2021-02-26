@@ -1,7 +1,119 @@
- <!-- <app-bandeau></app-bandeau>
+<!-- <app-bandeau></app-bandeau> -->
 
-<mat-grid-list cols="4" rowHeight="2:1"> 
-    <mat-grid-tile [colspan]="4" [rowspan]="1" style="background: lightblue;">1</mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1" style="background: lightpink;">3</mat-grid-tile>
-    <mat-grid-tile [colspan]="3" [rowspan]="1" style="background: #DDBDF1;">4</mat-grid-tile>
-</mat-grid-list> -->
+<mat-grid-list cols="4" rowHeight="6rem">
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <div style="width: 100%; height: 100%;">
+            <section style="margin-left: 350px; margin-top: 25px;">
+                <button mat-button style="margin-right: 30px;">NOUVEAUTÉS</button>
+
+                <button mat-button [matMenuTriggerFor]="belowMenu" style="margin-right: 30px;">HAUTS</button>
+                <mat-menu #belowMenu="matMenu" yPosition="below">
+                    <button mat-menu-item>VOIR TOUT</button>
+                    <button mat-menu-item>PULL</button>
+                    <button mat-menu-item>CHEMISE</button>
+                    <button mat-menu-item>SWEAT</button>
+                </mat-menu>
+
+                <button mat-button [matMenuTriggerFor]="beforeMenu" style="margin-right: 30px;">BAS</button>
+                <mat-menu #beforeMenu="matMenu" yPosition="below">
+                    <button mat-menu-item>VOIR TOUT</button>
+                    <button mat-menu-item>JEANS</button>
+                    <button mat-menu-item>PANTALON</button>
+                </mat-menu>
+
+
+                <button mat-button style="margin-right: 30px;">COSTUMES</button>
+
+                <button mat-button>CHAUSSURES</button>
+            </section>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="3">
+        <div style="width: 100%; height: 100%;">
+            <div class="example-action-buttons">
+                <button mat-button (click)="renitialiser()"
+                    style="width: -webkit-fill-available; height: 50px; border: black solid;">RÉNITIALISER</button>
+            </div>
+            <mat-accordion class="example-headers-align" multi>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            PAR CATÉGORIE
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            PAR TAILLE
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            PAR COULEUR
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            PAR PRIX
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="6">
+        <div style="width: 100%; height: 100%;">
+            <mat-grid-list cols="{{desired_columns}}" rowHeight="{{desired_rowHeight}}">
+                <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+
+                    <mat-card class="example-card">
+                        <!-- <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>{{tile.title}}</mat-card-title>
+                            <mat-card-subtitle>{{tile.subtitle}}</mat-card-subtitle>
+                        </mat-card-header> -->
+                        <img mat-card-image src="{{tile.src}}" alt="Photo de produit">
+                        <mat-card-content>
+                            <p>
+                                {{tile.content}}
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>Ajouter au panier</button>
+                            <!-- <button mat-button>SHARE</button> -->
+                        </mat-card-actions>
+                    </mat-card>
+
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
+            Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+            originally
+            bred for hunting.
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card> -->
