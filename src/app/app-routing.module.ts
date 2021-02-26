@@ -4,21 +4,21 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/accueil',
+    redirectTo: '/index',
     pathMatch: 'full'
   },
   {
-    path: 'accueil',
-    loadChildren: './areas/accueil/accueil.module#AccueilModule'
+    path: 'index',
+    loadChildren: () => import('./areas/accueil/accueil.module').then(m => m.AccueilModule)
   },
   {
-    path: 'index',
-    loadChildren: './areas/accueil/accueil.module#AccueilModule'
+    path: 'collection',
+    loadChildren: () => import('./areas/collection/collection.module').then(m => m.CollectionModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })

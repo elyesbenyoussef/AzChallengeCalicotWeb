@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { IndexComponent } from "../index/index.component";
 import { AccueilResolver } from "./accueil-resolver.service";
 import { AccueilComponent } from "./accueil.component";
 
 const routes: Routes = [
     {
         path: '',
-        component: AccueilComponent,
-        resolve: { products : AccueilResolver }
+        component: IndexComponent
     }
 ]
 
@@ -20,5 +20,6 @@ const routes: Routes = [
 export class AccueilRoutingModule { }
 
 export const routedComponents = [
-    AccueilComponent
+    AccueilComponent,
+    IndexComponent
 ]
