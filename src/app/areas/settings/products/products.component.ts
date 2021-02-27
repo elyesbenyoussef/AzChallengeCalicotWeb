@@ -18,8 +18,9 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<ProductEntity>();
   paginatorInt: MatPaginatorIntl;
-  
-  constructor(public dialog: MatDialog) { }
+
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.paginatorInt = new MatPaginatorIntl();
@@ -28,7 +29,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     this.paginatorInt.lastPageLabel = 'Dernière page';
     this.paginatorInt.nextPageLabel = 'Page suivante';
     this.paginatorInt.previousPageLabel = "Page précédente";
-    
+
     this.loadProducts();
   }
 
@@ -49,7 +50,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      //MockValues.add(result);
       this.loadProducts();
     });
   }

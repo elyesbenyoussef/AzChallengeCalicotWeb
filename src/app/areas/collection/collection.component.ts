@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MockValues } from 'src/app/entities/mock.entity';
 
 export interface Tile {
@@ -23,9 +24,16 @@ export class CollectionComponent implements OnInit {
 
   tiles: Tile[] = [];
 
-  constructor() { }
+  constructor(private activeRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activeRouted.data.subscribe((resolveData: any) => {
+      MockValues.initall(resolveData.collection);
+      this.Init();
+    })  
+  }
+
+  Init(): void {
     MockValues.getProducts().forEach(element => {
       let tile: Tile = {
         title: element.name,

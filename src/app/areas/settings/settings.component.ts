@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MockValues } from 'src/app/entities/mock.entity';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activeRouted.data.subscribe((resolveData: any) => {
+      MockValues.initall(resolveData.collection);
+    })  
   }
 
 }
