@@ -12,9 +12,10 @@ export class SettingsComponent implements OnInit {
   constructor(private activeRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRouted.data.subscribe((resolveData: any) => {
+    this.activeRouted.data.subscribe((resolveData: any) => {
+      console.log(resolveData);
       MockValues.initall(resolveData.collection);
-    })  
+    })
   }
 
 }

@@ -13,6 +13,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
+      console.log(resolveData);
       MockValues.initall(resolveData.collection);
     })
   }

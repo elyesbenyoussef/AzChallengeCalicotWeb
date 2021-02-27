@@ -28,6 +28,7 @@ export class CollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
+      console.log(resolveData);
       MockValues.initall(resolveData.collection);
       this.Init();
     })
