@@ -25,8 +25,8 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)' 
-    contents: '**/Web.config' 
-    targetFolder: 'dist/AzChallengeCalicotWeb'
+    contents: '**/web.config' 
+    targetFolder: 'dist'
     cleanTargetFolder: false
     flattenFolders: true
  
