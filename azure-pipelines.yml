@@ -26,7 +26,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)' 
     contents: '**/Web.config' 
-    targetFolder: 'dist/AzChallengeCalicotWeb'
+    targetFolder: 'dist'
     cleanTargetFolder: false
     flattenFolders: true
  
