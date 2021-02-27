@@ -26,8 +26,7 @@ export class CollectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let mockValues = new MockValues();
-    mockValues.products.forEach(element => {
+    MockValues.getProducts().forEach(element => {
       let tile: Tile = {
         title: element.name,
         price: element.price,

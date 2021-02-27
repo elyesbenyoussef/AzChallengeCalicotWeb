@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Ajouter un produit</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="standard">
+        <mat-label>Nom de produit</mat-label>
+        <input matInput placeholder="Ajouter nom de produit" [(ngModel)]="data.name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput  [(ngModel)]="data.description"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Prix</mat-label>
+        <input matInput type="number" class="right-align"  [(ngModel)]="data.price">
+        <span matPrefix>$&nbsp;</span>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Image URL</mat-label>
+        <input matInput placeholder="Ajouter l'URL de l'image"  [(ngModel)]="data.imageSrc">
+      </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button (click)="onAddClick()" cdkFocusInitial>Ajouter</button>
+</div>

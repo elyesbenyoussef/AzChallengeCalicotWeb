@@ -7,11 +7,17 @@ const ELEMENT_DATA: ProductEntity[] = [
     { id: 4, name: 'Chemise', price: 54.99, description: 'Chemise slim blanche imprimée', imageSrc: '../../assets/img/products/produit4.jpg' }
 ];
 
-export class MockValues {
+export abstract class MockValues {
 
-    products: ProductEntity[] = [];
+    private static products: ProductEntity[];
 
-    constructor() {
-        this.products = ELEMENT_DATA;
+    public static init(){
+        MockValues.products = ELEMENT_DATA;
+    }
+    public static getProducts(): ProductEntity[] {
+        return this.products;
+    }
+    public static add(product: ProductEntity) {
+        this.products.push(product);
     }
 }
