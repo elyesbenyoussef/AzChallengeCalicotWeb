@@ -36,7 +36,7 @@ export class CollectionComponent implements OnInit {
   Init(): void {
     const products = MockValues.getProducts();
     if (products) {
-      products.forEach(element => {
+      Array.from(products).forEach(element => {
         let tile: Tile = {
           title: element.name,
           price: element.price,
