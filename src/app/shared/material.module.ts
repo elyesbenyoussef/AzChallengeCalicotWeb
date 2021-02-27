@@ -12,6 +12,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatTableModule,
         MatPaginatorModule,
         MatDialogModule,
+        MatInputModule,
     ],
     exports: [
         MatSidenavModule,
@@ -44,6 +46,7 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatTableModule,
         MatPaginatorModule,
         MatDialogModule,
+        MatInputModule,
     ]
 })
 
