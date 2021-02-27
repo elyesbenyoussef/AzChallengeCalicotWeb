@@ -1,7 +1,18 @@
-<mat-toolbar  style="background:black;">
-    <div class="toolbar" role="banner"  style="background:black;">
-        <mat-icon class="white-icon" style="margin-left: 120px;">toll</mat-icon>
-        <a class="navbar-brand js-scroll-trigger" style="margin-left: 1px; color: gray;" href="#index">Calicot</a>
-        <!-- <mat-icon class="white-icon">shopping_cart</mat-icon> -->
-    </div>
+<mat-toolbar style="background:black;">
+    <mat-icon class="white-icon" style="margin-left: 120px;">toll</mat-icon>
+    <a class="navbar-brand js-scroll-trigger" style="margin-left: 1px; color: gray;" href="#index">Calicot</a>
+    <span class="spacer"></span>
+
+    <button mat-icon-button>
+        <mat-icon class="white-icon">shopping_cart</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="white-icon">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateToSettings()">
+            <mat-icon>settings</mat-icon>
+            <span>Gérer votre site</span>
+        </button>
+    </mat-menu>
 </mat-toolbar>

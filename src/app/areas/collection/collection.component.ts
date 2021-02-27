@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MockValues } from 'src/app/entities/mock.entity';
 
 export interface Tile {
-  color: string;
+  color?: string;
   cols: number;
   rows: number;
-  text: string;
   title: string;
-  subtitle: string;
   content: string;
+  price: number;
   src: string;
 }
 
@@ -20,20 +20,26 @@ export class CollectionComponent implements OnInit {
 
   desired_columns = 4;
   desired_rowHeight = "28rem";
-  
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue', title: 'Sweat', subtitle: 'sous titre 1', content: 'Sweat à capuche enfilable - Rouge et bleu', src:'../../assets/img/products/produit1.jpg'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen', title: 'Chaussure', subtitle: 'sous titre 2', content: 'Chaussures Décontractées En Cuir - Blanc', src:'../../assets/img/products/produit2.png'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink', title: 'Chaussure', subtitle: 'sous titre 3', content: 'Chaussures Décontractées En Cuir - Noir', src:'../../assets/img/products/produit3.png'},
-    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1', title: 'Chemise', subtitle: 'sous titre 4', content: 'Chemise slim blanche imprimée', src:'../../assets/img/products/produit4.jpg'},
-  ];
+
+  tiles: Tile[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-  }
+    let mockValues = new MockValues();
+    mockValues.products.forEach(element => {
+      let tile: Tile = {
+        title: element.name,
+        price: element.price,
+        content: element.description,
+        src: element.imageSrc,
+        cols: 1,
+        rows: 1,
+      }
 
-  ngAfterInit() { }
+      this.tiles.push(tile);
+    });
+  }
 
   renitialiser() { }
 

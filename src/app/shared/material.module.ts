@@ -8,6 +8,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import {MatMenuModule} from '@angular/material/menu';
         MatButtonModule,
         MatExpansionModule,
         MatFormFieldModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTabsModule,
+        MatTableModule,
+        MatPaginatorModule,
     ],
     exports: [
         MatSidenavModule,
@@ -31,7 +37,10 @@ import {MatMenuModule} from '@angular/material/menu';
         MatButtonModule,
         MatExpansionModule,
         MatFormFieldModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTabsModule,
+        MatTableModule,
+        MatPaginatorModule,
     ]
 })
 

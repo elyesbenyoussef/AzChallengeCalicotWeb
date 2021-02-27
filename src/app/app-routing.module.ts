@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'collection',
     loadChildren: () => import('./areas/collection/collection.module').then(m => m.CollectionModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./areas/settings/settings.module').then(m => m.SettingsModule)
   }
 ];
 
