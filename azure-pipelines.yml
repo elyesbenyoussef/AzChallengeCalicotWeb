@@ -25,7 +25,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)' 
-    contents: '**/Web.config' 
+    contents: '**/web.config' 
     targetFolder: 'dist'
     cleanTargetFolder: false
     flattenFolders: true
@@ -33,7 +33,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)' 
-    contents: 'Web.config' 
+    contents: 'web.config' 
     targetFolder: 'dist'
     cleanTargetFolder: false
     flattenFolders: true
