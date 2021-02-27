@@ -13,10 +13,10 @@ export class AccueilService {
     }
 
     GetAllProducts() {
-        return this.http.get(environment.ApiUrl + 'collection/all');
+        return this.http.get(environment.ApiUrl + 'api/collection/all');
     }
 
     AddProduct(product: ProductEntity) {
-        return this.http.post(environment.ApiUrl + 'collection', product);
+        return this.http.post(environment.ApiUrl + 'api/collection', product);
     }
 }

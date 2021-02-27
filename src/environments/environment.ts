@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ApiUrl: 'http://localhost/AzChallangeCalicotApi/api/'
+  ApiUrl: 'http://localhost/AzChallangeCalicotApi/'
 };
 
 /*
