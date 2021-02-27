@@ -29,14 +29,6 @@ steps:
     targetFolder: 'dist'
     cleanTargetFolder: false
     flattenFolders: true
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Build.SourcesDirectory)' 
-    contents: 'web.config' 
-    targetFolder: 'dist'
-    cleanTargetFolder: false
-    flattenFolders: true
  
 - task: CopyFiles@2
   inputs:
