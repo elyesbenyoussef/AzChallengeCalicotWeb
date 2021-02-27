@@ -44,7 +44,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
   AddProduct(): void {
     const dialogRef = this.dialog.open(AddComponent, {
-      width: '250px',
       data: new ProductEntity()
     });
 
