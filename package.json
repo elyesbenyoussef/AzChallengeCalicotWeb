@@ -30,6 +30,7 @@
     "@material/tabs": "^2.3.0",
     "@material/toolbar": "^2.3.0",
     "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "@popperjs/core": "^2.8.4",
     "angular-material-sidenav": "^0.1.1",
     "angular-paginator": "^6.0.0",
