@@ -11,14 +11,18 @@ export abstract class MockValues {
 
     private static products: ProductEntity[];
 
-    public static init(){
+    public static init() {
         MockValues.products = ELEMENT_DATA;
     }
-    public static initall(data:ProductEntity[] ){
+    public static initall(data: ProductEntity[]) {
         MockValues.products = data;
     }
-    public static getProducts(): ProductEntity[] {
-        return this.products;
+    public static getProducts(): ProductEntity[] {
+        if (this.products) {
+            return this.products;
+        } else {
+            return [];
+        }
     }
     public static add(product: ProductEntity) {
         this.products.push(product);

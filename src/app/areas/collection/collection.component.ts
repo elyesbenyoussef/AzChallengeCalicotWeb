@@ -27,25 +27,28 @@ export class CollectionComponent implements OnInit {
   constructor(private activeRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRouted.data.subscribe((resolveData: any) => {
+    this.activeRouted.data.subscribe((resolveData: any) => {
       MockValues.initall(resolveData.collection);
       this.Init();
-    })  
+    })
   }
 
   Init(): void {
-    MockValues.getProducts().forEach(element => {
-      let tile: Tile = {
-        title: element.name,
-        price: element.price,
-        content: element.description,
-        src: element.imageSrc,
-        cols: 1,
-        rows: 1,
-      }
+    const products = MockValues.getProducts();
+    if (products) {
+      products.forEach(element => {
+        let tile: Tile = {
+          title: element.name,
+          price: element.price,
+          content: element.description,
+          src: element.imageSrc,
+          cols: 1,
+          rows: 1,
+        }
 
-      this.tiles.push(tile);
-    });
+        this.tiles.push(tile);
+      });
+    }
   }
 
   renitialiser() { }

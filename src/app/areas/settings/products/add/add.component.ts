@@ -22,12 +22,8 @@ export class AddComponent implements OnInit {
     this.dialogRef.close();
   }
   onAddClick() {
-    let product = new ProductEntity();
-    this.data.id = MockValues.getProducts().length + 1;
-    product.name = '';
-    product.description = '';
-    product.price = 0;
-    product.imageSrc = '';
+    const products = MockValues.getProducts();
+    this.data.id = products.length + 1;
     MockValues.add(this.data);
 
     this.accueilService.AddProduct(this.data).subscribe((res) => {
