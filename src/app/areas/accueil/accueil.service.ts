@@ -13,7 +13,7 @@ export class AccueilService {
     }
 
     GetAllProducts() {
-        return this.http.get(environment.ApiUrl + 'api/collection/all', { responseType: 'text' as 'json' });
+        return this.http.get(environment.ApiUrl + 'api/collection/all');
     }
 
     AddProduct(product: ProductEntity) {
