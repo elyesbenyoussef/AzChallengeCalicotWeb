@@ -1,5 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule, Optional, SkipSelf } from "@angular/core";
+import { HttpClientService } from "../services/http-client.service";
 import { SharedModule } from "../shared/shared.module";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
@@ -11,7 +12,7 @@ import { HeaderComponent } from "./header/header.component";
     [FooterComponent]],
     declarations: [HeaderComponent,
         FooterComponent],
-    providers: []
+    providers: [HttpClientService]
 })
 
 export class CoreModule {

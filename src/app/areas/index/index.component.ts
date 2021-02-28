@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MockValues } from 'src/app/entities/mock.entity';
 
 @Component({
   selector: 'app-index',
@@ -9,13 +7,10 @@ import { MockValues } from 'src/app/entities/mock.entity';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private activeRouted: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.activeRouted.data.subscribe((resolveData: any) => {
-      console.log(resolveData);
-      MockValues.initall(resolveData.collection);
-    })
+
   }
 
 }

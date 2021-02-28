@@ -29,7 +29,7 @@ export class CollectionComponent implements OnInit {
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
       console.log(resolveData);
-      MockValues.initall(resolveData.collection);
+      MockValues.initall(resolveData.collection.data);
       this.Init();
     })
   }
