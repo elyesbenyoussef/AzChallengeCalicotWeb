@@ -16,6 +16,19 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
  
+- task: replacetokens@3
+  inputs:
+    targetFiles: '**/environment.prod.ts'
+    encoding: 'auto'
+    writeBOM: true
+    actionOnMissing: 'warn'
+    keepToken: false
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'
+    useLegacyPattern: false
+    enableTransforms: false
+    enableTelemetry: true
+
 - script: |
     npm install -g @angular/cli
     npm install
@@ -50,16 +63,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
-- task: replacetokens@3
-  inputs:
-    targetFiles: '**/environment.prod.ts'
-    encoding: 'auto'
-    writeBOM: true
-    actionOnMissing: 'warn'
-    keepToken: false
-    tokenPrefix: '#{'
-    tokenSuffix: '}#'
-    useLegacyPattern: false
-    enableTransforms: false
-    enableTelemetry: true
