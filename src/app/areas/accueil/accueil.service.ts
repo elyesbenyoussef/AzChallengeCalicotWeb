@@ -13,7 +13,7 @@ export class AccueilService {
         headers: new HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Request-Headers': '*',
+            //'Access-Control-Request-Headers': '*',
             'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
         })
     };
@@ -23,7 +23,9 @@ export class AccueilService {
     }
 
     GetAllProducts() {
-        return this.http.get(environment.ApiUrl + 'api/collection/all', this.httpOptions);
+        const url = environment.ApiUrl + 'api/collection/all';
+        console.log(url);
+        return this.http.get(url, this.httpOptions);
     }
 
     AddProduct(product: ProductEntity) {
