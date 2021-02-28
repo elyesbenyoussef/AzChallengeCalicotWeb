@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MockValues } from './entities/mock.entity';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,10 @@ export class AppComponent {
     this.mobileQuery.addListener(this._mobileQueryListener);
 
     MockValues.init();
+
+    let title = `is production: ${environment.production}, api: ${environment.ApiUrl}`;
+    console.log(title);
+
   }
 
   ngOnDestroy(): void {
