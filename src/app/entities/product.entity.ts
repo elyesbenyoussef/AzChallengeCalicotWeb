@@ -1,7 +1,7 @@
 export class ProductEntity {
-    id: number;
-    name: string;
+    produitId: number;
+    nom: string;
     description: string;
-    price: number;
+    prix: number;
     imageSrc?: string;
   }

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
+import { CollectionService } from "src/app/services/collection.service";
 import { AccueilService } from "./accueil.service";
 
 @Injectable({
@@ -7,9 +8,9 @@ import { AccueilService } from "./accueil.service";
 })
 
 export class AccueilResolver implements Resolve<any> {
-    constructor(private accueilService: AccueilService) { }
+    constructor(private collectionService: CollectionService) { }
 
     resolve(route: ActivatedRouteSnapshot): any {
-        return this.accueilService.GetAllProducts();
+        return this.collectionService.GetAllProducts();
     }
 }

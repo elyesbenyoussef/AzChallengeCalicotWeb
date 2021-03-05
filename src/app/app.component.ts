@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { MockValues } from './entities/mock.entity';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -27,8 +26,6 @@ export class AppComponent {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
 
     this.mobileQuery.addListener(this._mobileQueryListener);
-
-    MockValues.init();
 
     let title = `is production: ${environment.production}, api: ${environment.ApiUrl}`;
     console.log(title);

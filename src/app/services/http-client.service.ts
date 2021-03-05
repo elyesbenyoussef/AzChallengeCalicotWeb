@@ -59,8 +59,12 @@ export class HttpClientService {
         );
     }
 
-    delete<T>(url: string): Observable<T> {
-        return this.http.delete<EnveloppeReponseBase<any>>(url).pipe(
+    delete<T>(url: string, data?: any): Observable<T> {
+        const options = {
+            headers: new HttpHeaders(),
+            body: data
+        };
+        return this.http.delete<EnveloppeReponseBase<any>>(url, options).pipe(
             mergeMap((reponse: EnveloppeReponseBase<any>) => {
                 this.traiterErreurFonctionnelle(reponse);
                 this.estEnErreur = false;

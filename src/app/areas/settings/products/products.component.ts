@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MockValues } from 'src/app/entities/mock.entity';
+import { EnveloppeReponseBase } from 'src/app/entities/enveloppe-reponse.entity';
+import { CollectionService } from 'src/app/services/collection.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { ProductEntity } from '../../../entities/product.entity'
 import { AddComponent } from './add/add.component';
 
@@ -13,13 +15,16 @@ import { AddComponent } from './add/add.component';
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
 
+  @Input() products: ProductEntity[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
   dataSource = new MatTableDataSource<ProductEntity>();
   paginatorInt: MatPaginatorIntl;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+    private snackbarService: SnackbarService,
+    private collectionService: CollectionService) {
   }
 
   ngOnInit(): void {
@@ -30,11 +35,17 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     this.paginatorInt.nextPageLabel = 'Page suivante';
     this.paginatorInt.previousPageLabel = "Page précédente";
 
-    this.loadProducts();
+    this.dataSource = new MatTableDataSource<ProductEntity>(this.products);
   }
 
   loadProducts() {
-    this.dataSource = new MatTableDataSource<ProductEntity>(MockValues.getProducts());
+    this.collectionService.GetAllProducts().subscribe((reponse: EnveloppeReponseBase<ProductEntity[]>) => {
+      if (reponse.isValid) {
+        this.products = reponse.data;
+        this.dataSource = new MatTableDataSource<ProductEntity>(reponse.data);
+        this.dataSource._updateChangeSubscription();
+      }
+    })
   }
 
   ngAfterViewInit() {
@@ -50,6 +61,20 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.loadProducts();
+    });
+  }
+
+  supprimer(produitId: number) {
+    console.log(produitId);
+    const product = this.dataSource.data.find(x => x.produitId === produitId);
+    this.collectionService.DeleteProduct(product).subscribe((reponse: EnveloppeReponseBase<Boolean>) => {
+      if (reponse.data) {
+        this.dataSource.data.forEach((element, index) => {
+          if (element.produitId === produitId) { this.dataSource.data.splice(index, 1); }
+        });
+        this.dataSource._updateChangeSubscription();
+        this.snackbarService.openSnackBarSuccess();
+      }
     });
   }
 

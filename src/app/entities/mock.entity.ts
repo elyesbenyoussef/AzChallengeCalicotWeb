@@ -7,24 +7,24 @@ const ELEMENT_DATA: ProductEntity[] = [
     // { id: 4, name: 'Chemise', price: 54.99, description: 'Chemise slim blanche imprimée', imageSrc: '../../assets/img/products/produit4.jpg' }
 ];
 
-export abstract class MockValues {
+// export abstract class MockValues {
 
-    private static products: ProductEntity[];
+//     private static products: ProductEntity[];
 
-    public static init() {
-        MockValues.products = ELEMENT_DATA;
-    }
-    public static initall(data: ProductEntity[]) {
-        MockValues.products = data;
-    }
-    public static getProducts(): ProductEntity[] {
-        if (this.products) {
-            return this.products;
-        } else {
-            return [];
-        }
-    }
-    public static add(product: ProductEntity) {
-        this.products.push(product);
-    }
-}
+//     public static init() {
+//         MockValues.products = ELEMENT_DATA;
+//     }
+//     public static initall(data: ProductEntity[]) {
+//         MockValues.products = data;
+//     }
+//     public static getProducts(): ProductEntity[] {
+//         if (this.products) {
+//             return this.products;
+//         } else {
+//             return [];
+//         }
+//     }
+//     public static add(product: ProductEntity) {
+//         this.products.push(product);
+//     }
+// }

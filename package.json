@@ -27,6 +27,7 @@
     "@material/form-field": "^10.0.0",
     "@material/grid-list": "^4.0.0",
     "@material/menu": "^10.0.0",
+    "@material/snackbar": "^10.0.0",
     "@material/tabs": "^2.3.0",
     "@material/toolbar": "^2.3.0",
     "@ngx-translate/core": "^13.0.0",

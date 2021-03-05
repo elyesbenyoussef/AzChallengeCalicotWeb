@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {MatInputModule} from '@angular/material/input';
         MatPaginatorModule,
         MatDialogModule,
         MatInputModule,
+        MatSnackBarModule,
     ],
     exports: [
         MatSidenavModule,
@@ -47,6 +49,7 @@ import {MatInputModule} from '@angular/material/input';
         MatPaginatorModule,
         MatDialogModule,
         MatInputModule,
+        MatSnackBarModule,
     ]
 })
 

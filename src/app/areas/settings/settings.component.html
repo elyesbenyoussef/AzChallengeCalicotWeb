@@ -1,9 +1,7 @@
-
 <mat-tab-group dynamicHeight>
-    <mat-tab label="Gérer votre liste de produits">
-      <div class="large-box mat-elevation-z4">
-        <app-products style="width: 100%;"></app-products>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
-  
+  <mat-tab label="Gérer votre liste de produits">
+    <div class="large-box mat-elevation-z4">
+      <app-products [products]="products" style="width: 100%;"></app-products>
+    </div>
+  </mat-tab>
+</mat-tab-group>

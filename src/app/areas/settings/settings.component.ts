@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MockValues } from 'src/app/entities/mock.entity';
+import { ProductEntity } from 'src/app/entities/product.entity';
 
 @Component({
   selector: 'app-settings',
@@ -9,12 +9,14 @@ import { MockValues } from 'src/app/entities/mock.entity';
 })
 export class SettingsComponent implements OnInit {
 
+  products: ProductEntity[] = [];
+  
   constructor(private activeRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
       console.log(resolveData);
-      MockValues.initall(resolveData.collection.data);
+      this.products = resolveData.collection.data;
     })
   }
 

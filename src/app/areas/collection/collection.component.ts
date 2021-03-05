@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MockValues } from 'src/app/entities/mock.entity';
+import { ProductEntity } from 'src/app/entities/product.entity';
 
 export interface Tile {
   color?: string;
@@ -24,23 +24,24 @@ export class CollectionComponent implements OnInit {
 
   tiles: Tile[] = [];
 
+  products: ProductEntity[] = [];
+
   constructor(private activeRouted: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
       console.log(resolveData);
-      MockValues.initall(resolveData.collection.data);
+      this.products = resolveData.collection.data;
       this.Init();
     })
   }
 
   Init(): void {
-    const products = MockValues.getProducts();
-    if (products) {
-      Array.from(products).forEach(element => {
+    if (this.products) {
+      Array.from(this.products).forEach(element => {
         let tile: Tile = {
-          title: element.name,
-          price: element.price,
+          title: element.nom,
+          price: element.prix,
           content: element.description,
           src: element.imageSrc,
           cols: 1,
