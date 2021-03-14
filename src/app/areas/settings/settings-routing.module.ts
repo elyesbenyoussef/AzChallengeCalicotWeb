@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AccueilResolver } from "../accueil/accueil-resolver.service";
+import { UploadComponent } from "./products/upload/upload.component";
+import { SettingsResolver } from "./settings-resolver.service";
 import { SettingsComponent } from "./settings.component";
 
 const routes: Routes = [
@@ -8,8 +9,12 @@ const routes: Routes = [
         path: '',
         component: SettingsComponent,
         resolve: {
-            collection: AccueilResolver
+            collection: SettingsResolver
         }
+    },
+    {
+        path: "upload",
+        component: UploadComponent
     }
 ]
 

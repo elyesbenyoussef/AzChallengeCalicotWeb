@@ -6,10 +6,10 @@ import { CollectionService } from "src/app/services/collection.service";
     providedIn: 'root'
 })
 
-export class AccueilResolver implements Resolve<any> {
+export class SettingsResolver implements Resolve<any> {
     constructor(private collectionService: CollectionService) { }
 
     resolve(route: ActivatedRouteSnapshot): any {
-        return this.collectionService.GetAllProductsActifs();
+        return this.collectionService.GetAllProducts();
     }
 }

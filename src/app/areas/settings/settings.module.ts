@@ -6,6 +6,9 @@ import { SettingsComponent } from "./settings.component";
 import { ProductsComponent } from './products/products.component';
 import { AddComponent } from './products/add/add.component';
 import { FormsModule } from '@angular/forms';
+import { UploadImagesComponent } from "./upload-images/upload-images.component";
+import { UploadComponent } from './products/upload/upload.component';
+import { SettingsResolver } from "./settings-resolver.service";
 
 
 @NgModule({
@@ -15,7 +18,8 @@ import { FormsModule } from '@angular/forms';
         SettingsRoutingModule,
         FormsModule
     ],
-    declarations: [[SettingsComponent, ProductsComponent, AddComponent]]
+    providers: [SettingsResolver],
+    declarations: [[SettingsComponent, ProductsComponent, AddComponent, UploadImagesComponent, UploadComponent]]
 })
 
 export class SettingsModule { }

@@ -26,6 +26,12 @@ export class CollectionService {
         return this.http.get(url, this.httpOptions);
     }
 
+    GetAllProductsActifs() {
+        const url = environment.ApiUrl + 'api/collection/actifs';
+        console.log(url);
+        return this.http.get(url, this.httpOptions);
+    }
+
     AddProduct(product: ProductEntity) {
         return this.http.post(this.CollectionURL, product);
     }
@@ -34,4 +40,7 @@ export class CollectionService {
         return this.http.delete(this.CollectionURL, product);
     }
 
+    UpdateProduct(product: ProductEntity) {
+        return this.http.put(this.CollectionURL, product);
+    }
 }

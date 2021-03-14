@@ -4,4 +4,5 @@ export class ProductEntity {
     description: string;
     prix: number;
     imageSrc?: string;
+    indActive: boolean;
   }

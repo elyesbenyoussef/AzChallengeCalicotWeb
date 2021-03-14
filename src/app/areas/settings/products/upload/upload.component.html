@@ -1,0 +1,11 @@
+<div class="row">
+    <button mat-raised-button color="secondary" type="button" (click)="fileInput.click()">Choisir le fichier</button>
+    <input hidden #fileInput type="file" id="file" (change)="setFilename(fileInput.files)" />
+    <br />
+    <button mat-raised-button color="primary" type="button" (click)="save(fileInput.files)"
+        *ngIf="filename && filename !== ''">Sauvegarder</button>
+    <br />
+    <label style="align-self: flex-end; margin-left: 10px;">{{ filename }}</label>
+</div>
+<br />
+<img style="width: 250px; height: 280px;" *ngIf="url && url !== ''" [src]="url" />

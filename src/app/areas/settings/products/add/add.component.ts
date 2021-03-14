@@ -25,4 +25,37 @@ export class AddComponent implements OnInit {
       this.dialogRef.close();
     });
   }
+
+  addImageSource(newImageSource: string) {
+    this.data.imageSrc = newImageSource;
+  }
+
+  isValid(): boolean {
+    if (this.nomValidation() && this.imageValidation() && this.descriptionValidation() && this.prixValidation()) {
+      return true;
+    }
+
+    return false;
+  }
+
+  imageValidation(): boolean {
+    if (this.data.imageSrc && this.data.imageSrc.length > 0) { return true; }
+    return false;
+  }
+
+  nomValidation(): boolean {
+    if (this.data.nom && this.data.nom.length > 0) { return true; }
+    return false;
+  }
+
+  descriptionValidation(): boolean {
+    if (this.data.description && this.data.description.length > 0) { return true; }
+    return false;
+  }
+
+  prixValidation(): boolean {
+    if (this.data.prix && this.data.prix > 0) { return true; }
+    return false;
+  }
+
 }

@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   @Input() products: ProductEntity[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'activation', 'actions'];
   dataSource = new MatTableDataSource<ProductEntity>();
   paginatorInt: MatPaginatorIntl;
 
@@ -78,6 +78,13 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     });
   }
 
+  activateAccount(element: ProductEntity) { }
+  deactivateAccount(element: ProductEntity) { }
+
+  toggle(element: ProductEntity) {
+    //this.dataSource.data.find(d => d.produitId === element.produitId).indActive = !this.dataSource.data.find(d => d.produitId === element.produitId).indActive;
+    this.collectionService.UpdateProduct(element).subscribe();
+  }
 }
 
 
