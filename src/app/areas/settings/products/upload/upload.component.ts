@@ -11,7 +11,7 @@ export class UploadComponent implements OnInit {
   filename = '';
   url = '';
 
-  @Output() imageSourceEvent = new EventEmitter<string>();
+  @Output() imageSourceEvent = new EventEmitter<{url: string, nom: string}>();
 
   constructor(private uploadService: UploadService) { }
 
@@ -34,7 +34,7 @@ export class UploadComponent implements OnInit {
     this.uploadService
       .upload(formData)
       .subscribe(({ path }) => {
-        this.imageSourceEvent.emit(path);
+        this.imageSourceEvent.emit({url: path, nom:files[0].name});
         this.url = path;
       });
   }

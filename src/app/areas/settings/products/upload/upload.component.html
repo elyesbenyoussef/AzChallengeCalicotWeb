@@ -1,5 +1,5 @@
 <div class="row">
-    <button mat-raised-button color="secondary" type="button" (click)="fileInput.click()">Choisir le fichier</button>
+    <button mat-raised-button color="secondary" type="button" (click)="fileInput.click()">Ajouter une photo</button>
     <input hidden #fileInput type="file" id="file" (change)="setFilename(fileInput.files)" />
     <br />
     <button mat-raised-button color="primary" type="button" (click)="save(fileInput.files)"
@@ -8,4 +8,4 @@
     <label style="align-self: flex-end; margin-left: 10px;">{{ filename }}</label>
 </div>
 <br />
-<img style="width: 250px; height: 280px;" *ngIf="url && url !== ''" [src]="url" />
+<!-- <img style="width: 250px; height: 280px;" *ngIf="url && url !== ''" [src]="url" /> -->

@@ -15,11 +15,15 @@
                 <input matInput type="number" class="right-align" [(ngModel)]="data.prix">
                 <span matPrefix>$&nbsp;</span>
             </mat-form-field>
-            <!-- <mat-form-field style="width: 100%;">
-            <mat-label>Image URL</mat-label>
-            <input matInput placeholder="Ajouter l'URL de l'image" [(ngModel)]="data.imageSrc">
-        </mat-form-field> -->
             <app-upload (imageSourceEvent)="addImageSource($event)"></app-upload>
+
+            <div style="width: 99%;overflow-y: auto;">
+                <mat-list-item *ngFor="let image of data.images">
+                    <img style="width: 150px; height: 150px; padding: 2px;" src="{{image.url}}"
+                        alt="Photo de produit" />
+                </mat-list-item>
+            </div>
+
         </div>
         <div class="column right" style="margin-left: 10px; min-width: 200px;">
             <span *ngIf="!isValid()">Complèter les informations suivantes</span>

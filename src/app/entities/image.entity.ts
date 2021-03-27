@@ -1,5 +1,15 @@
+import { ProductEntity } from "./product.entity";
+
 export class ImageEntity {
+
+    constructor(produitId: number, url: string, nom: string) {
+        this.produitId = produitId;
+        this.url = url;
+        this.nom = nom;
+    }
     imageId: number;
-    url: string;
     produitId: number;
+    nom: string;
+    url: string;
+    produit: ProductEntity;
 }

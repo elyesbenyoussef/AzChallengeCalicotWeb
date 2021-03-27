@@ -44,7 +44,7 @@ export class CollectionComponent implements OnInit {
           title: element.nom,
           price: element.prix,
           content: element.description,
-          src: element.imageSrc,
+          src: element.images && element.images.length > 0 ? element.images[0].url : element.imageSrc,
           id: element.produitId,
           cols: 1,
           rows: 1,

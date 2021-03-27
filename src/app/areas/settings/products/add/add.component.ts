@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ImageEntity } from 'src/app/entities/image.entity';
 import { ProductEntity } from 'src/app/entities/product.entity';
 import { CollectionService } from 'src/app/services/collection.service';
 
@@ -26,8 +27,10 @@ export class AddComponent implements OnInit {
     });
   }
 
-  addImageSource(newImageSource: string) {
-    this.data.imageSrc = newImageSource;
+  addImageSource(newImageSource: any) {
+    //this.data.imageSrc = newImageSource.url;
+    var newImage = new ImageEntity(this.data.produitId, newImageSource.url, newImageSource.nom);
+    this.data.images.push(newImage);
   }
 
   isValid(): boolean {
@@ -39,7 +42,7 @@ export class AddComponent implements OnInit {
   }
 
   imageValidation(): boolean {
-    if (this.data.imageSrc && this.data.imageSrc.length > 0) { return true; }
+    if (this.data.images && this.data.images.length > 0) { return true; }
     return false;
   }
 

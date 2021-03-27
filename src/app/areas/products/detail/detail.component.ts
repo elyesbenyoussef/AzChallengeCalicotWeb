@@ -19,10 +19,7 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
       this.produit = resolveData.collection.data;
-      this.images.push({ url: this.produit.imageSrc, imageId: 1, produitId: this.produit.produitId });
-      this.images.push({ url: 'https://azchallengestoragedev.blob.core.windows.net/photos/casquette-trucker-coq-morning-glory.jpg', imageId: 2, produitId: this.produit.produitId });
-      this.images.push({ url: 'https://azchallengestoragedev.blob.core.windows.net/photos/a1726c15e8a6a2828c3f2fe18e8ec341.jpg', imageId: 3, produitId: this.produit.produitId });
-      this.images.push({ url: 'https://azchallengestoragedev.blob.core.windows.net/photos/m_4311013231_01.jpg', imageId: 4, produitId: this.produit.produitId });
+      this.images = resolveData.collection.data.images;
     })
   }
 
