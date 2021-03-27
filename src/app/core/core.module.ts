@@ -9,26 +9,21 @@ import { SharedModule } from "../shared/shared.module";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
-import { ImageLightboxComponent } from './image-lightbox/image-lightbox.component';
-import { ImageService } from "../services/image.service";
 
 @NgModule({
     imports: [SharedModule,
         HttpClientModule],
     exports: [[HeaderComponent],
-    [FooterComponent],
-    [ImageLightboxComponent]],
+    [FooterComponent]],
     declarations: [HeaderComponent,
         FooterComponent,
-        SnackBarComponent,
-        ImageLightboxComponent],
+        SnackBarComponent],
     providers: [
         HttpClientService,
         SnackbarService,
         CollectionService,
         UploadFilesService,
         UploadService,
-        ImageService
     ]
 })
 
