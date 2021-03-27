@@ -22,13 +22,16 @@ export class CollectionService {
 
     GetAllProducts() {
         const url = environment.ApiUrl + 'api/collection/all';
-        console.log(url);
         return this.http.get(url, this.httpOptions);
     }
 
     GetAllProductsActifs() {
         const url = environment.ApiUrl + 'api/collection/actifs';
-        console.log(url);
+        return this.http.get(url, this.httpOptions);
+    }
+
+    GetProductDetail(produitId: number) {
+        const url = environment.ApiUrl + 'api/collection/' + produitId;
         return this.http.get(url, this.httpOptions);
     }
 

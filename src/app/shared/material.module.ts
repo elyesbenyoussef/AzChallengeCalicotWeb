@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatInputModule,
         MatSnackBarModule,
         MatSlideToggleModule,
+        MatDividerModule,
     ],
     exports: [
         MatSidenavModule,
@@ -53,6 +55,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatInputModule,
         MatSnackBarModule,
         MatSlideToggleModule,
+        MatDividerModule,
     ]
 })
 

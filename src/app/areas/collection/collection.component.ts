@@ -10,6 +10,7 @@ export interface Tile {
   content: string;
   price: number;
   src: string;
+  id: number;
 }
 
 @Component({
@@ -44,6 +45,7 @@ export class CollectionComponent implements OnInit {
           price: element.prix,
           content: element.description,
           src: element.imageSrc,
+          id: element.produitId,
           cols: 1,
           rows: 1,
         }

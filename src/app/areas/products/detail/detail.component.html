@@ -1,0 +1,51 @@
+<mat-grid-list cols="7" rowHeight="6rem">
+    <mat-grid-tile [colspan]="7" [rowspan]="1">
+        <div style="width: 100%; height: 100%;display: flex;flex-wrap: wrap;align-content: center;">
+            <button mat-flat-button routerLink="/collection">
+                <mat-icon>arrow_back</mat-icon>
+                Retour
+            </button>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="5">
+        <div style="width: 99%; height: 100%;overflow-y: auto;padding-top: 10px;padding-bottom: 10px;">
+            <mat-list-item *ngFor="let image of images">
+                <img style="width: 100%; height: 150px; padding: 5px; cursor: pointer;" src="{{image.url}}"
+                    alt="Photo de produit" (click)="ImageClick(image.url)" />
+            </mat-list-item>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+        <div style="width: 100%; height: 100%;padding: 10px;">
+            <img style="width: 100%; height: 100%;cursor: zoom-in;" src="{{produit.imageSrc}}" alt="Photo de produit"
+                (click)="openModal();currentSlide(produit.imageSrc)" class="hover-shadow cursor" />
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+        <div style="width: 100%; height: 100%;padding: 20px;">
+
+            <h1>{{produit.nom}}</h1>
+
+            <div style="height: 75px;">
+                <p>
+                    {{produit.description}}
+                </p>
+                <span style="font-weight: bold;">{{produit.prix}}$</span>
+            </div>
+
+            <mat-divider [inset]="true"></mat-divider>
+
+            <button mat-raised-button color="primary" style="width: 100%;height: 60px;">Acheter</button>
+
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div id="imgModal" class="slide-modal">
+    <span class="close cursor" (click)="closeModal()">&times;</span>
+    <div class="slide-modal-content">
+        <div class="img-slides" *ngFor="let image of images; let i = index">
+            <img src="{{image.url}}">
+        </div>
+    </div>
+</div>

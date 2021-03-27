@@ -69,7 +69,7 @@
             <mat-grid-list cols="{{desired_columns}}" rowHeight="{{desired_rowHeight}}">
                 <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
 
-                    <mat-card class="example-card">
+                    <mat-card class="example-card" [routerLink]="['/collection/detail']" [queryParams]="{produitId: tile.id}">
                         <!-- <mat-card-header>
                             <div mat-card-avatar class="example-header-image"></div>
                             <mat-card-title>{{tile.title}}</mat-card-title>
