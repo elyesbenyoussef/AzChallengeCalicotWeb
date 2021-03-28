@@ -23,7 +23,7 @@ export class DetailComponent implements OnInit {
     this.activeRouted.data.subscribe((resolveData: any) => {
       this.produit = resolveData.collection.data;
       this.chargerImages(resolveData.collection.data.images);
-      this.defaultImage = this.images[0].urlThumb;
+      this.defaultImage = this.images[0].url;
     })
   }
 
@@ -36,8 +36,6 @@ export class DetailComponent implements OnInit {
       this.images.push(element);
     }
   }
-
-
 
   ImageClick(image: string) {
     this.defaultImage = image;
@@ -57,7 +55,7 @@ export class DetailComponent implements OnInit {
   }
 
   currentSlide(image) {
-    const index = this.images.findIndex(x => x.urlThumb === image);
+    const index = this.images.findIndex(x => x.url === image);
     this.showSlides(this.slideIndex = index + 1);
   }
 
