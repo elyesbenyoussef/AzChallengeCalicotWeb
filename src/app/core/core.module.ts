@@ -2,6 +2,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { CollectionService } from "../services/collection.service";
 import { HttpClientService } from "../services/http-client.service";
+import { ProductService } from "../services/product.service";
 import { SnackbarService } from "../services/snackbar.service";
 import { UploadFilesService } from "../services/upload-files.service";
 import { UploadService } from "../services/upload.service";
@@ -24,6 +25,7 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
         CollectionService,
         UploadFilesService,
         UploadService,
+        ProductService,
     ]
 })
 

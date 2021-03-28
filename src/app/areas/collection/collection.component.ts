@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductEntity } from 'src/app/entities/product.entity';
+import { ProductService } from 'src/app/services/product.service';
 
 export interface Tile {
   color?: string;
@@ -27,7 +28,8 @@ export class CollectionComponent implements OnInit {
 
   products: ProductEntity[] = [];
 
-  constructor(private activeRouted: ActivatedRoute) { }
+  constructor(private activeRouted: ActivatedRoute,
+    private productService: ProductService) { }
 
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
@@ -40,11 +42,19 @@ export class CollectionComponent implements OnInit {
   Init(): void {
     if (this.products) {
       Array.from(this.products).forEach(element => {
+        var imageSrc = '';
+        if (element.images && element.images.length > 0) {
+          element.images[0].urlThumb = this.productService.GetUrlThumb(element.images[0].url);
+          imageSrc = element.images[0].urlThumb;
+        } else {
+          imageSrc = element.imageSrc;
+        }
+
         let tile: Tile = {
           title: element.nom,
           price: element.prix,
           content: element.description,
-          src: element.images && element.images.length > 0 ? element.images[0].url : element.imageSrc,
+          src: imageSrc,
           id: element.produitId,
           cols: 1,
           rows: 1,

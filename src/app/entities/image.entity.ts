@@ -11,5 +11,6 @@ export class ImageEntity {
     produitId: number;
     nom: string;
     url: string;
+    urlThumb: string;
     produit: ProductEntity;
 }

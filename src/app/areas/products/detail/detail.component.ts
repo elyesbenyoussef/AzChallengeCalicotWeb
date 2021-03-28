@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ImageEntity } from 'src/app/entities/image.entity';
 import { ProductEntity } from 'src/app/entities/product.entity';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-detail',
@@ -13,18 +14,33 @@ export class DetailComponent implements OnInit {
   produit: ProductEntity = new ProductEntity();
   images: ImageEntity[] = [];
   slideIndex = 0;
+  defaultImage: string;
 
-  constructor(private activeRouted: ActivatedRoute) { }
+  constructor(private activeRouted: ActivatedRoute,
+    private productService: ProductService) { }
 
   ngOnInit(): void {
     this.activeRouted.data.subscribe((resolveData: any) => {
       this.produit = resolveData.collection.data;
-      this.images = resolveData.collection.data.images;
+      this.chargerImages(resolveData.collection.data.images);
+      this.defaultImage = this.images[0].urlThumb;
     })
   }
 
+  chargerImages(images: ImageEntity[]) {
+    for (let index = 0; index < images.length; index++) {
+      const element = images[index];
+
+      element.urlThumb = this.productService.GetUrlThumb(element.url);
+
+      this.images.push(element);
+    }
+  }
+
+
+
   ImageClick(image: string) {
-    this.produit.imageSrc = image;
+    this.defaultImage = image;
   }
 
   openModal() {
@@ -41,7 +57,7 @@ export class DetailComponent implements OnInit {
   }
 
   currentSlide(image) {
-    const index = this.images.findIndex(x => x.url === image);
+    const index = this.images.findIndex(x => x.urlThumb === image);
     this.showSlides(this.slideIndex = index + 1);
   }
 

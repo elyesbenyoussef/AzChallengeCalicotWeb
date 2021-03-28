@@ -10,15 +10,15 @@
     <mat-grid-tile [colspan]="1" [rowspan]="5">
         <div style="width: 99%; height: 100%;overflow-y: auto;padding-top: 10px;padding-bottom: 10px;">
             <mat-list-item *ngFor="let image of images">
-                <img style="width: 100%; height: 150px; padding: 5px; cursor: pointer;" src="{{image.url}}"
-                    alt="Photo de produit" (click)="ImageClick(image.url)" />
+                <img style="width: 100%; height: 150px; padding: 5px; cursor: pointer;" src="{{image.urlThumb}}"
+                    alt="Photo de produit" (click)="ImageClick(image.urlThumb)" title="Sélectionner"/>
             </mat-list-item>
         </div>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="5">
         <div style="width: 100%; height: 100%;padding: 10px;">
-            <img style="width: 100%; height: 100%;cursor: zoom-in;" src="{{produit.imageSrc}}" alt="Photo de produit"
-                (click)="openModal();currentSlide(produit.imageSrc)" class="hover-shadow cursor" />
+            <img style="width: 100%; height: 100%;cursor: zoom-in;" src="{{defaultImage}}" alt="Photo de produit"
+                (click)="openModal();currentSlide(defaultImage)" class="hover-shadow cursor" title="Agrandir l'image" />
         </div>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="5">
